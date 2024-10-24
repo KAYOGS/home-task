@@ -13,23 +13,44 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // ignore: avoid_unnecessary_containers
-    return Container(
-      child: GestureDetector(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: const Text(
+          'Home Task',
+          style: TextStyle(
+            fontSize: 20.0,
+            color: Colors.white,
+          )
+        ),
+        toolbarHeight: 90.0,
+      ),
+
+      body: Container(
         child: Center(
           child: Text(
-            'Contador $conter',
-            // ignore: prefer_const_constructors
-            style: TextStyle(color: Colors.blue, fontSize: 30.0),
-          ),
+            'Home ${conter}',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 30.0,
+            )
+          )
+        )
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            conter++;
+          });
+        },
+      
+        child: Icon(
+          Icons.add,
+          color: Colors.black,
         ),
 
-        onTap: () {
-          setState(
-            () {
-              conter++;
-            }
-          );
-        },
+        backgroundColor: Colors.blue,
       ),
     );
   }
